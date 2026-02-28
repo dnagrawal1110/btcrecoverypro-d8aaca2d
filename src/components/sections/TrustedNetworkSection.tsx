@@ -1,5 +1,8 @@
-import { useEffect, useRef } from "react";
 import { Shield, Database, Scale, Globe, Award } from "lucide-react";
+import network1 from "@/assets/network-1.png";
+import network2 from "@/assets/network-2.png";
+import network3 from "@/assets/network-3.png";
+import network4 from "@/assets/network-4.png";
 
 const partners = [
   { name: "Blockchain Analytics", icon: Database },
@@ -12,31 +15,14 @@ const partners = [
   { name: "Regulatory Advisors", icon: Scale },
 ];
 
+const photos = [
+  { src: network1, alt: "Network connection 1" },
+  { src: network2, alt: "Network connection 2" },
+  { src: network3, alt: "Network connection 3" },
+  { src: network4, alt: "Network connection 4" },
+];
+
 const TrustedNetworkSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
-
-    const animate = () => {
-      scrollPosition += scrollSpeed;
-      if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-        scrollPosition = 0;
-      }
-      scrollContainer.scrollLeft = scrollPosition;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(animationId);
-  }, []);
-
   return (
     <section className="py-16 bg-secondary/30 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -48,37 +34,40 @@ const TrustedNetworkSection = () => {
           We work closely with a verified network of blockchain analysts, legal consultants, exchanges, cybersecurity professionals, and compliance partners across multiple jurisdictions.
         </p>
 
-        {/* Auto-scrolling Partner Slider */}
-        <div className="relative">
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-secondary/30 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-secondary/30 to-transparent z-10 pointer-events-none" />
+        {/* Partner Icons Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 max-w-2xl mx-auto">
+          {partners.slice(0, 4).map((partner, index) => (
+            <div
+              key={index}
+              className="bg-card border border-border rounded-xl p-4 flex flex-col items-center gap-2"
+            >
+              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
+                <partner.icon className="w-6 h-6 text-muted-foreground" />
+              </div>
+              <p className="text-xs text-muted-foreground text-center font-medium">
+                {partner.name}
+              </p>
+            </div>
+          ))}
+        </div>
 
-          {/* Scrolling Container */}
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-hidden"
-            style={{ scrollBehavior: "auto" }}
-          >
-            {/* Duplicate partners for seamless loop */}
-            {[...partners, ...partners].map((partner, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-40 bg-card border border-border rounded-xl p-6 flex flex-col items-center gap-3 opacity-70 hover:opacity-100 transition-opacity"
-              >
-                <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
-                  <partner.icon className="w-7 h-7 text-muted-foreground" />
-                </div>
-                <p className="text-xs text-muted-foreground text-center font-medium">
-                  {partner.name}
-                </p>
+        {/* Moving Photo Strip */}
+        <div className="relative mb-8">
+          <div className="flex animate-scroll-logos">
+            {[...photos, ...photos, ...photos, ...photos].map((photo, i) => (
+              <div key={i} className="flex-shrink-0 mx-2">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="h-32 w-32 object-cover rounded-lg"
+                />
               </div>
             ))}
           </div>
         </div>
 
         {/* Trust Statement */}
-        <p className="text-center text-sm text-muted-foreground mt-8">
+        <p className="text-center text-sm text-muted-foreground">
           🔒 All partnerships verified • Confidential workflows • Multi-jurisdiction support
         </p>
       </div>
