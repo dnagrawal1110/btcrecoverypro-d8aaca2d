@@ -83,11 +83,16 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-6px)" },
         },
+        "scroll-logos": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
+        "scroll-logos": "scroll-logos 15s linear infinite",
       },
     },
   },
