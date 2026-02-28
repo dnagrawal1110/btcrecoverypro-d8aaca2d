@@ -19,12 +19,12 @@ const Index = () => {
       <TrustedBySection />
       <CaseStudiesSection />
       <IsThisYouSection />
+      <TrustedNetworkSection />
       <ServicesSection />
       <ProcessSection />
       <WhyChooseUsSection />
       <AboutSection />
       <LegalSection />
-      <TrustedNetworkSection />
       <FinalCTASection />
       <Footer />
       <StickyCTA />
