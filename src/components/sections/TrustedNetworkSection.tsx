@@ -2,12 +2,16 @@ import network1 from "@/assets/network-1.png";
 import network2 from "@/assets/network-2.png";
 import network3 from "@/assets/network-3.png";
 import network4 from "@/assets/network-4.png";
+import network5 from "@/assets/network-5.png";
+import network6 from "@/assets/network-6.png";
 
 const photos = [
   { src: network1, alt: "Network connection 1" },
   { src: network2, alt: "Network connection 2" },
   { src: network3, alt: "Network connection 3" },
   { src: network4, alt: "Network connection 4" },
+  { src: network5, alt: "Network connection 5" },
+  { src: network6, alt: "Network connection 6" },
 ];
 
 const TrustedNetworkSection = () => {
@@ -29,7 +33,7 @@ const TrustedNetworkSection = () => {
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="h-48 w-48 object-cover rounded-lg"
+                  className="h-56 w-56 object-cover rounded-lg"
                 />
               </div>
             ))}
