@@ -12,9 +12,8 @@ const photos = [
 
 const TrustedNetworkSection = () => {
   return (
-    <section className="py-16 bg-secondary/30 overflow-hidden">
+    <section className="py-16 pb-8 bg-secondary/30 overflow-hidden">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
         <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-2">
           Our Trusted Network & Global Connections
         </h2>
@@ -23,22 +22,21 @@ const TrustedNetworkSection = () => {
         </p>
 
         {/* Moving Photo Strip */}
-        <div className="relative mb-8">
+        <div className="relative mb-4">
           <div className="flex animate-scroll-logos">
             {[...photos, ...photos, ...photos, ...photos].map((photo, i) => (
               <div key={i} className="flex-shrink-0 mx-2">
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="h-48 w-48 object-cover rounded-xl"
+                  className="h-48 w-48 object-cover rounded-lg"
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Trust Statement */}
-        <p className="text-center text-sm text-muted-foreground">
+        <p className="text-center text-sm text-muted-foreground pb-2">
           🔒 All partnerships verified • Confidential workflows • Multi-jurisdiction support
         </p>
       </div>
